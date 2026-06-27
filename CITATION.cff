@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite the paper below."
+title: "Introspective Attention Modulation for Safe Text-to-Image Generation"
+authors:
+  - family-names: Azam
+    given-names: Basim
+  - family-names: Rahmani
+    given-names: Hossein
+  - family-names: Akhtar
+    given-names: Naveed
+preferred-citation:
+  type: conference-paper
+  title: "Introspective Attention Modulation for Safe Text-to-Image Generation"
+  authors:
+    - family-names: Azam
+      given-names: Basim
+    - family-names: Rahmani
+      given-names: Hossein
+    - family-names: Akhtar
+      given-names: Naveed
+  collection-title: "Proceedings of the European Conference on Computer Vision (ECCV)"
+  year: 2026

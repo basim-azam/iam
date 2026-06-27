@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Introspective Attention Modulation for Safe Text-to-Image Generation</title>
+<meta name="description" content="IAM: training-free, inference-time attention-space safety control for flow-based diffusion transformers (FLUX). ECCV 2026.">
+<meta property="og:title" content="Introspective Attention Modulation for Safe Text-to-Image Generation">
+<meta property="og:description" content="Training-free, inference-time attention-space safety control for FLUX. ECCV 2026.">
+<meta property="og:image" content="static/images/tradeoff.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+<link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+
+<!-- Trigger warning: first thing rendered, before any figure (ECCV chairs' requirement) -->
+<div class="warning" role="alert">
+  ⚠️ <strong>Content warning.</strong> This page discusses and evaluates unsafe
+  (sexual, violent, and otherwise disturbing) imagery produced by text-to-image
+  models. Any unsafe examples shown here are blurred. Viewer discretion is advised.
+</div>
+
+<header class="hero">
+  <h1>Introspective Attention Modulation<br>for Safe Text-to-Image Generation</h1>
+  <p class="authors">
+    <a href="https://findanexpert.unimelb.edu.au/profile/1065421-basim-azam">Basim Azam</a><sup>1</sup> ·
+    <a href="https://www.lancaster.ac.uk/scc/about-us/people/hossein-rahmani">Hossein Rahmani</a><sup>2</sup> ·
+    <a href="https://findanexpert.unimelb.edu.au/profile/1050019-naveed-akhtar">Naveed Akhtar</a><sup>1</sup>
+  </p>
+  <p class="affil">
+    <sup>1</sup> The University of Melbourne &nbsp;
+    <sup>2</sup> Lancaster University
+  </p>
+  <p class="venue"><strong>ECCV 2026</strong></p>
+  <nav class="links">
+    <a href="https://arxiv.org/abs/XXXX.XXXXX"><i class="fas fa-file-pdf"></i> Paper</a>
+    <a href="https://arxiv.org/abs/XXXX.XXXXX"><i class="ai ai-arxiv"></i> arXiv</a>
+    <a href="https://github.com/basim-azam/iam"><i class="fab fa-github"></i> Code</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="teaser">
+  <img src="static/images/teaser.png" alt="IAM steers the attention trajectory from unsafe to safe (unsafe regions concealed)">
+  <p class="caption"><strong>Figure 1.</strong> IAM reads the model's attention trajectory
+  during synthesis and steers it from an unsafe toward a safe trajectory, suppressing unsafe
+  content across strength levels while preserving the benign scene. (Unsafe regions concealed.)</p>
+</section>
+
+<section>
+  <h2>Abstract</h2>
+  <p>
+  State-of-the-art flow-based text-to-image (T2I) models exhibit remarkable
+  generative abilities but remain vulnerable to producing unsafe content. Prior
+  safety efforts range from concept erasure and prompt filtering to classifier-based
+  gating; simple parameter-efficient adaptations (e.g. LoRA) easily bypass such
+  guardrails. We introduce a principled approach that achieves safety by
+  <strong>regulating the model's attention dynamics through inference-time
+  introspection</strong>, exhibiting intrinsic robustness. Our method analyzes and
+  rebalances attention activations throughout image synthesis, steering generations
+  away from unsafe concepts while preserving semantic alignment. Across standard and
+  adversarial safety benchmarks, our approach achieves strong safety scores while
+  maintaining — or even improving — alignment and perceptual quality, all
+  <strong>without retraining the base model</strong>.
+  </p>
+</section>
+
+<section>
+  <h2>Highlights</h2>
+  <ul class="highlights">
+    <li><strong>Training-free &amp; inference-time.</strong> No retraining or weight edits — IAM intervenes in attention space during denoising.</li>
+    <li><strong>Robust to adversarial adapters.</strong> Holds up where weight-editing defenses are undone by NSFW LoRAs.</li>
+    <li><strong>A safety–quality dial.</strong> An introspection-ratio handle (Light / Moderate / Strong) trades safety against fidelity continuously.</li>
+    <li><strong>Strong results.</strong> Improves safety over UCE, ESD, and EraseAnything while preserving CLIP alignment and FID.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>Safety–quality trade-off</h2>
+  <img class="diagram" src="static/images/tradeoff.png" alt="CLIP score vs. safety score: IAM (Light/Moderate/Strong) reaches the safe, high-fidelity corner">
+  <p class="caption">IAM (Light → Moderate → Strong) advances toward the safe,
+  high-fidelity corner, dominating concept-erasure baselines (UCE, ESD, EraseAnything).</p>
+</section>
+
+<section>
+  <h2>Results</h2>
+  <img class="diagram" src="static/images/comparison.png" alt="Nudity and explicit-content rates by method on I2P and SneakyPrompts">
+  <p class="caption">On the standard I2P benchmark and the adversarial SneakyPrompts
+  set, IAM achieves the lowest nudity and explicit-content rates among compared methods
+  (lower is better).</p>
+</section>
+
+<!-- QUALITATIVE COMPARISONS: drop the redacted figures at the paths below, then uncomment.
+<section>
+  <h2>Qualitative comparisons</h2>
+  <img class="diagram" src="static/images/qual_attacks.png" alt="Comparison under adversarial attacks (unsafe regions concealed)">
+  <p class="caption">Under adversarial attacks (MMA-Diffusion, UnlearnDiffAtk), IAM suppresses unsafe content where concept-erasure methods are bypassed. (Unsafe regions concealed.)</p>
+  <img class="diagram" src="static/images/qual_methods.png" alt="Comparison with UCE, ESD, EraseAnything, FlowEdit, MCE (unsafe regions concealed)">
+  <p class="caption">IAM vs. concept-erasure and editing baselines (UCE, ESD, EraseAnything, FlowEdit, MCE) on I2P prompts. (Unsafe regions concealed.)</p>
+  <img class="diagram" src="static/images/qual_flux.png" alt="IAM across FLUX variants (unsafe regions concealed)">
+  <p class="caption">IAM generalizes across FLUX variants (Dev, Kontext, Schnell, Krea). (Unsafe regions concealed.)</p>
+</section>
+-->
+
+<section id="gallery-section" hidden>
+  <h2>Qualitative results</h2>
+  <p class="caption">Unsafe outputs are concealed; IAM-protected outputs are shown unmodified.</p>
+  <div id="gallery" class="gallery"></div>
+</section>
+<script>
+fetch('gallery.json').then(r => r.json()).then(d => {
+  const items = (d && d.items) || [];
+  if (!items.length) return;
+  const g = document.getElementById('gallery');
+  items.forEach(it => {
+    const card = document.createElement('figure');
+    card.className = 'gcard';
+    card.innerHTML =
+      '<div class="gpair">' +
+        '<div><img src="' + it.before + '" alt="without IAM (concealed)"><span>Without IAM (concealed)</span></div>' +
+        '<div><img src="' + it.after + '" alt="with IAM"><span>With IAM</span></div>' +
+      '</div>' +
+      (it.prompt ? '<figcaption>' + it.prompt + '</figcaption>' : '');
+    g.appendChild(card);
+  });
+  document.getElementById('gallery-section').hidden = false;
+}).catch(() => {});
+</script>
+
+<section>
+  <h2>BibTeX</h2>
+<pre><code>@inproceedings{azam2026iam,
+  title     = {Introspective Attention Modulation for Safe Text-to-Image Generation},
+  author    = {Azam, Basim and Rahmani, Hossein and Akhtar, Naveed},
+  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
+  year      = {2026}
+}</code></pre>
+</section>
+
+<section class="ack">
+  <h2>Acknowledgements</h2>
+  <p>Naveed Akhtar is a recipient of the Australian Research Council Discovery Early
+  Career Researcher Award (project #DE230101058) funded by the Australian Government.
+  This research was supported by The University of Melbourne's Research Computing
+  Services and the Petascale Campus Initiative.</p>
+</section>
+
+</main>
+
+<footer>
+  <p>© 2026 The authors. Page template adapted from <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a>.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+*.ipynb_checkpoints/
+.DS_Store
+# never commit base/adapter weights or generated NSFW content
+*.safetensors
+!iam/w_unsafe/*.safetensors
+models/
+outputs/
+*.png
+!assets/*.png
+.env
+# do not ship third-party benchmark data
+*.csv
+data/
+i2p*.json
+subset_*.json
+!docs/static/images/*.png
+!docs/static/images/gallery/*.png
