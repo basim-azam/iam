@@ -18,7 +18,7 @@
 <div class="warning" role="alert">
   ⚠️ <strong>Content warning.</strong> This page discusses and evaluates unsafe
   (sexual, violent, and otherwise disturbing) imagery produced by text-to-image
-  models. Any unsafe examples shown here are blurred. Viewer discretion is advised.
+  models. Any unsafe examples shown here are concealed. Viewer discretion is advised.
 </div>
 
 <header class="hero">
@@ -29,8 +29,7 @@
     <a href="https://findanexpert.unimelb.edu.au/profile/1050019-naveed-akhtar">Naveed Akhtar</a><sup>1</sup>
   </p>
   <p class="affil">
-    <sup>1</sup> The University of Melbourne &nbsp;
-    <sup>2</sup> Lancaster University
+    <sup>1</sup> The University of Melbourne &nbsp; <sup>2</sup> Lancaster University
   </p>
   <p class="venue"><strong>ECCV 2026</strong></p>
   <nav class="links">
@@ -42,11 +41,13 @@
 
 <main>
 
+<!-- HERO FIGURE. Swap src to static/images/teaser.png (the redacted attention teaser)
+     and restore the attention-trajectory caption once that file is provided. -->
 <section class="teaser">
-  <img src="static/images/teaser.png" alt="IAM steers the attention trajectory from unsafe to safe (unsafe regions concealed)">
-  <p class="caption"><strong>Figure 1.</strong> IAM reads the model's attention trajectory
-  during synthesis and steers it from an unsafe toward a safe trajectory, suppressing unsafe
-  content across strength levels while preserving the benign scene. (Unsafe regions concealed.)</p>
+  <img src="static/images/tradeoff.png" alt="Safety–quality trade-off: IAM reaches the safe, high-fidelity corner">
+  <p class="caption"><strong>Figure 1.</strong> IAM (Light → Moderate → Strong) advances toward the
+  safe, high-fidelity corner, dominating concept-erasure baselines (UCE, ESD, EraseAnything) —
+  a continuous safety–quality trade-off with no retraining.</p>
 </section>
 
 <section>
@@ -69,19 +70,24 @@
 
 <section>
   <h2>Highlights</h2>
-  <ul class="highlights">
-    <li><strong>Training-free &amp; inference-time.</strong> No retraining or weight edits — IAM intervenes in attention space during denoising.</li>
-    <li><strong>Robust to adversarial adapters.</strong> Holds up where weight-editing defenses are undone by NSFW LoRAs.</li>
-    <li><strong>A safety–quality dial.</strong> An introspection-ratio handle (Light / Moderate / Strong) trades safety against fidelity continuously.</li>
-    <li><strong>Strong results.</strong> Improves safety over UCE, ESD, and EraseAnything while preserving CLIP alignment and FID.</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Safety–quality trade-off</h2>
-  <img class="diagram" src="static/images/tradeoff.png" alt="CLIP score vs. safety score: IAM (Light/Moderate/Strong) reaches the safe, high-fidelity corner">
-  <p class="caption">IAM (Light → Moderate → Strong) advances toward the safe,
-  high-fidelity corner, dominating concept-erasure baselines (UCE, ESD, EraseAnything).</p>
+  <div class="cards">
+    <div class="card">
+      <h3>🛡️ Training-free &amp; inference-time</h3>
+      <p>No retraining or weight edits — IAM intervenes in attention space during denoising.</p>
+    </div>
+    <div class="card">
+      <h3>🔒 Robust to adversarial adapters</h3>
+      <p>Holds up where weight-editing defenses are undone by NSFW LoRAs and jailbreak attacks.</p>
+    </div>
+    <div class="card">
+      <h3>🎚️ A safety–quality dial</h3>
+      <p>An introspection-ratio handle (Light / Moderate / Strong) trades safety against fidelity continuously.</p>
+    </div>
+    <div class="card">
+      <h3>📈 Strong results</h3>
+      <p>Improves safety over UCE, ESD, and EraseAnything while preserving CLIP alignment and FID.</p>
+    </div>
+  </div>
 </section>
 
 <section>
