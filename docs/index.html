@@ -7,7 +7,7 @@
 <meta name="description" content="IAM: training-free, inference-time attention-space safety control for flow-based diffusion transformers (FLUX). ECCV 2026.">
 <meta property="og:title" content="Introspective Attention Modulation for Safe Text-to-Image Generation">
 <meta property="og:description" content="Training-free, inference-time attention-space safety control for FLUX. ECCV 2026.">
-<meta property="og:image" content="static/images/tradeoff.png">
+<meta property="og:image" content="static/images/teaser.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
 <link rel="stylesheet" href="static/css/style.css">
@@ -41,13 +41,14 @@
 
 <main>
 
-<!-- HERO FIGURE. Swap src to static/images/teaser.png (the redacted attention teaser)
-     and restore the attention-trajectory caption once that file is provided. -->
+<!-- HERO FIGURE: the attention-trajectory teaser (redacted). -->
 <section class="teaser">
-  <img src="static/images/tradeoff.png" alt="Safety–quality trade-off: IAM reaches the safe, high-fidelity corner">
-  <p class="caption"><strong>Figure 1.</strong> IAM (Light → Moderate → Strong) advances toward the
-  safe, high-fidelity corner, dominating concept-erasure baselines (UCE, ESD, EraseAnything) —
-  a continuous safety–quality trade-off with no retraining.</p>
+  <img src="static/images/teaser.png" alt="IAM steers attention from an unsafe to a safe trajectory at inference time (unsafe regions concealed)">
+  <p class="caption"><strong>Figure 1.</strong> IAM redirects the model's attention from an
+  <em>unsafe</em> toward a <em>safe</em> trajectory at inference time. <strong>(A)</strong> Double-stream
+  attention across blocks and denoising steps — the baseline drifts toward unsafe concepts, while IAM
+  steers it back. <strong>(B)</strong> The resulting outputs, with a Light → Moderate → Strong handle
+  that trades safety against fidelity, all without retraining. <em>(Unsafe regions concealed.)</em></p>
 </section>
 
 <section>
@@ -91,24 +92,22 @@
 </section>
 
 <section>
-  <h2>Results</h2>
-  <img class="diagram" src="static/images/comparison.png" alt="Nudity and explicit-content rates by method on I2P and SneakyPrompts">
-  <p class="caption">On the standard I2P benchmark and the adversarial SneakyPrompts
-  set, IAM achieves the lowest nudity and explicit-content rates among compared methods
-  (lower is better).</p>
-</section>
-
-<!-- QUALITATIVE COMPARISONS: drop the redacted figures at the paths below, then uncomment.
-<section>
   <h2>Qualitative comparisons</h2>
-  <img class="diagram" src="static/images/qual_attacks.png" alt="Comparison under adversarial attacks (unsafe regions concealed)">
-  <p class="caption">Under adversarial attacks (MMA-Diffusion, UnlearnDiffAtk), IAM suppresses unsafe content where concept-erasure methods are bypassed. (Unsafe regions concealed.)</p>
-  <img class="diagram" src="static/images/qual_methods.png" alt="Comparison with UCE, ESD, EraseAnything, FlowEdit, MCE (unsafe regions concealed)">
-  <p class="caption">IAM vs. concept-erasure and editing baselines (UCE, ESD, EraseAnything, FlowEdit, MCE) on I2P prompts. (Unsafe regions concealed.)</p>
-  <img class="diagram" src="static/images/qual_flux.png" alt="IAM across FLUX variants (unsafe regions concealed)">
-  <p class="caption">IAM generalizes across FLUX variants (Dev, Kontext, Schnell, Krea). (Unsafe regions concealed.)</p>
+
+  <img class="diagram" src="static/images/qual_methods.png" alt="IAM vs. UCE, ESD, EraseAnything, FlowEdit and MCE (unsafe regions concealed)">
+  <p class="caption">IAM vs. concept-erasure and editing methods (UCE, ESD, EraseAnything,
+  FlowEdit, MCE). Where weight-editing approaches leave unsafe content intact, IAM produces a
+  clean, semantically aligned image. <em>(Unsafe regions concealed.)</em></p>
+
+  <img class="diagram" src="static/images/qual_attacks.png" alt="IAM under adversarial attacks: MMA-Diffusion and UnlearnDiffAtk (unsafe regions concealed)">
+  <p class="caption">Robustness under adversarial attacks — MMA-Diffusion and UnlearnDiffAtk
+  across nudity, shocking, illegal-activity, violence and self-harm categories. IAM holds where
+  the attacks bypass other defenses. <em>(Unsafe regions concealed.)</em></p>
+
+  <img class="diagram" src="static/images/qual_flux.png" alt="IAM across FLUX variants: Dev, Kontext, Schnell, Krea (unsafe regions concealed)">
+  <p class="caption">IAM generalizes across FLUX variants (Dev, Kontext, Schnell, Krea) with no
+  per-model tuning. <em>(Unsafe regions concealed.)</em></p>
 </section>
--->
 
 <section id="gallery-section" hidden>
   <h2>Qualitative results</h2>

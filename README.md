@@ -42,14 +42,20 @@
 
 ## 📊 Results
 
+> ⚠️ Unsafe regions are concealed in all figures.
+
 <div align="center">
-<img src="assets/tradeoff.png" width="80%"/>
-<br><em>Safety–quality trade-off: IAM (Light → Strong) reaches the safe, high-fidelity corner,
-dominating concept-erasure baselines (UCE, ESD, EraseAnything).</em>
+<img src="assets/qual_methods.png" width="92%"/>
+<br><em>IAM vs. concept-erasure and editing methods (UCE, ESD, EraseAnything, FlowEdit, MCE):
+where weight-editing approaches leave unsafe content intact, IAM yields a clean, semantically
+aligned image.</em>
 <br><br>
-<img src="assets/comparison.png" width="80%"/>
-<br><em>Across the standard I2P benchmark and the adversarial SneakyPrompts set, IAM attains the
-lowest nudity and explicit-content rates among compared methods (lower is better).</em>
+<img src="assets/qual_attacks.png" width="92%"/>
+<br><em>Robustness under adversarial attacks (MMA-Diffusion, UnlearnDiffAtk) across nudity,
+shocking, illegal-activity, violence and self-harm categories.</em>
+<br><br>
+<img src="assets/qual_flux.png" width="92%"/>
+<br><em>IAM generalizes across FLUX variants (Dev, Kontext, Schnell, Krea) with no per-model tuning.</em>
 </div>
 
 ## 🛠️ Setup &amp; Usage
