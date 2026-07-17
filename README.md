@@ -10,7 +10,7 @@
 
 ### ECCV 2026
 
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/XXXX.XXXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b?logo=arxiv&logoColor=white)]([https://arxiv.org/abs/2607.14945](https://arxiv.org/abs/2607.14945))
 [![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1b3c8c)](https://eccv.ecva.net/)
 [![Project Page](https://img.shields.io/badge/Project-Page-2ea44f?logo=githubpages&logoColor=white)](https://basim-azam.github.io/iam)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
