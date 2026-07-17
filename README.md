@@ -10,11 +10,10 @@
 
 ### ECCV 2026
 
-[![arXiv](https://img.shields.io/badge/arXiv-XXXX.XXXXX-b31b1b?logo=arxiv&logoColor=white)]([https://arxiv.org/abs/2607.14945](https://arxiv.org/abs/2607.14945))
-[![ECCV 2026](https://img.shields.io/badge/ECCV-2026-1b3c8c)](https://eccv.ecva.net/)
-[![Project Page](https://img.shields.io/badge/Project-Page-2ea44f?logo=githubpages&logoColor=white)](https://basim-azam.github.io/iam)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow)](LICENSE)
-
+[![arXiv](https://img.shields.io/badge/arXiv-2607.14945-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2607.14945)
+[![Project Page](https://img.shields.io/badge/Project-Page-1f6feb?logo=githubpages&logoColor=white)](https://basim-azam.github.io/iam/)
+[![ECCV 2026](https://img.shields.io/badge/ECCV-2026-4b44ce)](https://basim-azam.github.io/iam/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 <img src="assets/teaser.png" width="92%"/>
 
 </div>
