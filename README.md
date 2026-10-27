@@ -8,11 +8,8 @@
 
 <sup>1</sup>The University of Melbourne &nbsp;·&nbsp; <sup>2</sup>Lancaster University
 
-### ECCV 2026
-
 [![arXiv](https://img.shields.io/badge/arXiv-2607.14945-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2607.14945)
 [![Project Page](https://img.shields.io/badge/Project-Page-1f6feb?logo=githubpages&logoColor=white)](https://basim-azam.github.io/iam/)
-[![ECCV 2026](https://img.shields.io/badge/ECCV-2026-4b44ce)](https://basim-azam.github.io/iam/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 <img src="assets/teaser.png" width="92%"/>
 
@@ -24,7 +21,7 @@
 
 ## 📰 News
 
-- **2026-06** — Paper accepted to **ECCV 2026**. 🎉 The [project page](https://basim-azam.github.io/iam) is live.
+- **Preprint is on [arXiv](https://arxiv.org/abs/2607.14945)** and the [project page](https://basim-azam.github.io/iam) is live.
 - **Code & models are coming soon** — see the release checklist below.
 
 ## 🗓️ Release
@@ -72,11 +69,11 @@ img.save("iam_output.png")
 ## 📌 Citation
 
 ```bibtex
-@inproceedings{azam2026iam,
-  title     = {Introspective Attention Modulation for Safe Text-to-Image Generation},
-  author    = {Azam, Basim and Rahmani, Hossein and Akhtar, Naveed},
-  booktitle = {Proceedings of the European Conference on Computer Vision (ECCV)},
-  year      = {2026}
+@article{azam2026iam,
+  title   = {Introspective Attention Modulation for Safe Text-to-Image Generation},
+  author  = {Azam, Basim and Rahmani, Hossein and Akhtar, Naveed},
+  journal = {arXiv preprint arXiv:2607.14945},
+  year    = {2026}
 }
 ```
 

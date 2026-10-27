@@ -9,7 +9,7 @@ authors:
   - family-names: Akhtar
     given-names: Naveed
 preferred-citation:
-  type: conference-paper
+  type: article
   title: "Introspective Attention Modulation for Safe Text-to-Image Generation"
   authors:
     - family-names: Azam
@@ -18,5 +18,5 @@ preferred-citation:
       given-names: Hossein
     - family-names: Akhtar
       given-names: Naveed
-  collection-title: "Proceedings of the European Conference on Computer Vision (ECCV)"
+  journal: "arXiv preprint arXiv:2607.14945"
   year: 2026
